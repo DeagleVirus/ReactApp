@@ -1,0 +1,9 @@
+.header {
+    background-color: green;
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    grid-area: header;
+    border: 2px dashed black;
+}

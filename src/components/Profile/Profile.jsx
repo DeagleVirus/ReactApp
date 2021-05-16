@@ -1,6 +1,9 @@
+import prof from './Profile.module.css'
+import Posts from './Posts/Posts'
+
 const Profile = () => {
     return (
-        <div className="content">
+        <div className={prof.content}>
           <img src="https://i.pinimg.com/originals/4d/b0/dd/4db0ddad2581a98832b486d6ff9788e2.jpg" />
           <div>
             avatar
@@ -9,22 +12,7 @@ const Profile = () => {
           <div>
             profile description
           </div>
-
-          <div>
-            My posts
-          </div>
-
-          <div>
-            new post
-          </div>
-
-          <div>
-            post1
-          </div>
-
-          <div>
-            post2
-          </div>
+          <Posts />
       </div>
     );
 }

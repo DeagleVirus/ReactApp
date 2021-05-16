@@ -1,6 +1,8 @@
+import nav from './NavBar.module.css'
+
 const NavBar = () => {
     return (
-        <nav className="navigation">
+        <nav className={nav.navigation}>
           <div>
             Home
           </div>

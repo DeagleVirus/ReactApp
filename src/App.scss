@@ -6,28 +6,4 @@
     grid-template-areas: 
                         "header header"
                         "navigation content";
-    .header {
-        background-color: green;
-        img{
-            width: 100px;
-            height: 100px;
-        }
-        grid-area: header;
-        border: 2px dashed black;
-    }
-
-    .navigation {
-        font-size: 50px;
-        background-color: royalblue;
-        grid-area: navigation;
-        border: 2px dashed deeppink;
-    }
-
-    .content{
-        font-size: 40px;
-        background-color: indigo;
-        grid-area: content;
-        border: 2px dashed lawngreen;
-    }
-
 }

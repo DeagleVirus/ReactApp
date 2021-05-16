@@ -1,0 +1,23 @@
+.info {
+  font-style: italic;
+}
+
+.info:hover {
+  color: plum;
+}
+
+.info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.info .item {
+  width: 100px;
+  color: red;
+}
+
+.likes {
+  background-color: darkslateblue;
+  width: 110px;
+}
