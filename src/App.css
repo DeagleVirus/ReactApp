@@ -6,13 +6,14 @@
       grid-template-columns: 1fr 4fr;
   -ms-grid-rows: 2fr 5fr;
       grid-template-rows: 2fr 5fr;
-      grid-template-areas: "header header"
- "navigation content";
+      grid-template-areas: "header header" "navigation content";
 }
 
-.Application-content{
-    font-size: 40px;
-    background-color: indigo;
-    grid-area: content;
-    border: 2px dashed lawngreen;  
+.Application-content {
+  font-size: 40px;
+  background-color: indigo;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: content;
+  border: 2px dashed lawngreen;
 }

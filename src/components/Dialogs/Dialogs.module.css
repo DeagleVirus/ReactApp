@@ -1,3 +1,19 @@
-.item {
+.dialogs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 20fr;
+      grid-template-columns: 2fr 20fr;
   color: orange;
+}
+
+.dialogs .dialogsNames {
+  padding: 20px;
+}
+
+.dialogs .messages {
+  padding: 20px;
+}
+
+.dialogName.active {
+  color: lightseagreen;
 }

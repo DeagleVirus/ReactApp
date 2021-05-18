@@ -3,4 +3,24 @@
     background-color: royalblue;
     grid-area: navigation;
     border: 2px dashed deeppink;
+    padding: 30px;
+
+    a{
+        color: whitesmoke;
+        text-decoration: none;
+        &:hover{
+            color: fuchsia;
+        }
+        &:active{
+            color: turquoise;
+        }
+    }
+
+    a.activeButton{
+        &:hover{
+            color: black;
+        }
+        color: orangered;
+    }
 }
+

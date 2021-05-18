@@ -3,4 +3,26 @@
   background-color: royalblue;
   grid-area: navigation;
   border: 2px dashed deeppink;
+  padding: 30px;
+}
+
+.navigation a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: fuchsia;
+}
+
+.navigation a:active {
+  color: turquoise;
+}
+
+.navigation a.activeButton {
+  color: orangered;
+}
+
+.navigation a.activeButton:hover {
+  color: black;
 }
