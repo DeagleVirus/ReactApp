@@ -1,16 +1,15 @@
 .Application{
     display: grid;
-    border: 5px dashed red;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 2fr 5fr;
+    grid-template-rows: 1fr 5fr;
     grid-template-areas: 
                         "header header"
                         "navigation content";
 }
 
 .Application-content{
-    font-size: 40px;
-    background-color: indigo;
-    grid-area: content;
-    border: 2px dashed lawngreen;  
+    border-left: 7px groove white;
+    font-size: 20px;
+    background-color: lightgoldenrodyellow;
+    grid-area: content; 
 }

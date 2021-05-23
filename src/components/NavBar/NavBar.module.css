@@ -1,8 +1,7 @@
 .navigation {
-  font-size: 50px;
-  background-color: royalblue;
+  font-size: 20px;
+  background-color: indigo;
   grid-area: navigation;
-  border: 2px dashed deeppink;
   padding: 30px;
 }
 

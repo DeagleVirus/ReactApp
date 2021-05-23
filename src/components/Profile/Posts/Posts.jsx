@@ -1,18 +1,18 @@
 import posts from './Posts.module.css'
 import Post from './Post/Post'
 
-const Posts = () => {
+
+const Posts = (props) => {
     return (
-        <div>
+        <div className={posts.general}>
             <div>
-                 My posts
+                 <h2>My posts</h2>
                 <div>
                     <textarea></textarea>
                     <button>new post</button>
                 </div>
             </div>
-            <Post message='hello, lets go to the gym' likes='5'/>
-            <Post message='good idea my friend!' likes='3'/>
+            {props.posts.map(m => <Post message={m.message} likes={m.likes} />)}
         </div>
     );
 }

@@ -1,19 +1,18 @@
 .Application {
   display: -ms-grid;
   display: grid;
-  border: 5px dashed red;
   -ms-grid-columns: 1fr 4fr;
       grid-template-columns: 1fr 4fr;
-  -ms-grid-rows: 2fr 5fr;
-      grid-template-rows: 2fr 5fr;
+  -ms-grid-rows: 1fr 5fr;
+      grid-template-rows: 1fr 5fr;
       grid-template-areas: "header header" "navigation content";
 }
 
 .Application-content {
-  font-size: 40px;
-  background-color: indigo;
+  border-left: 7px groove white;
+  font-size: 20px;
+  background-color: lightgoldenrodyellow;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: content;
-  border: 2px dashed lawngreen;
 }

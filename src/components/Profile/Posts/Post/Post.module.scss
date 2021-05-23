@@ -1,13 +1,11 @@
 .info{
     font-style: italic;
-    &:hover{
-        color: plum;
-    }
 
     img{
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        border: 2px solid yellow;
     }
 
     .item{
@@ -18,7 +16,14 @@
 
 
 .likes{
-    background-color: darkslateblue;
-    width: 110px;
+    &:hover{
+        color: orange;
+    }
+    color: wheat;
+    text-align: center;
+    background-color: darkmagenta;
+    width: 6%;
+    border-radius: 50%;
+    border: 2px solid orange;
 }
 
