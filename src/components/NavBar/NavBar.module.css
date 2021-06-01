@@ -25,3 +25,7 @@
 .navigation a.activeButton:hover {
   color: black;
 }
+
+.navigation .settings {
+  margin-top: 30px;
+}

@@ -2,3 +2,32 @@
   margin-top: 20px;
   margin-left: 20px;
 }
+
+.general .postField {
+  width: 200px;
+  height: 30px;
+  border: 3px solid indigo;
+  -webkit-box-shadow: 3px 3px 5px black;
+          box-shadow: 3px 3px 5px black;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  resize: none;
+}
+
+.general .postField:focus {
+  outline: none;
+  -webkit-box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px black;
+}
+
+.general .postButton {
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border: 3px solid indigo;
+}
+
+.general .postButton:active {
+  color: green;
+}
