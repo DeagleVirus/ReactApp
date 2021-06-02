@@ -1,4 +1,8 @@
-import {rerendering} from './../render'
+
+
+let rerendering = () => {
+  console.log("hello!!!")
+}
 
 let state = {
     dialogsPage: { 
@@ -17,7 +21,9 @@ let state = {
         {message: "let's play Call of Duty Warzone!"},
         {message: "Ok, go in the afternoon"},
         {message: "what day is it today?"}
-      ]
+      ],
+
+        TextChange: ''
     },
         
 
@@ -25,19 +31,38 @@ let state = {
         posts: [
             {message: 'hello, lets go to the gym', likes: '5'},
             {message: 'good idea my friend!', likes: '3'}
-          ]
+          ],
+        
+        TextChange: ''
     },
 }
 
+window.state = state
 
-export let addPost = (newPost) => {
+export let addPost = () => {
     let post = {
-        message: newPost,
+        message: state.profilePage.TextChange,
         likes: '0'
     }
 
     state.profilePage.posts.push(post);
+    state.profilePage.TextChange = '';
     rerendering(state);
 }
+
+export let addPostText = (newText) => {
+    state.profilePage.TextChange = newText
+    rerendering(state);
+}
+
+export let addDialogText = (newText) => {
+    state.dialogsPage.TextChange = newText
+    rerendering(state);
+}
+
+export let observing = (observer) => {
+    rerendering = observer
+}
+
 
 export default state;

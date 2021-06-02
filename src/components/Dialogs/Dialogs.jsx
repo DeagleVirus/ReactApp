@@ -7,9 +7,15 @@ import Messages from './Messages/Messages'
 const Dialogs = (props) => {
 
     let addMessage = React.createRef();
-    let add = () => {
+    let addMsg = () => {
         let text = addMessage.current.value
         alert(text)
+        addMessage.current.value = ''
+    }
+
+    let addText = () => {
+        let get = addMessage.current.value
+        props.addDialogText(get)
     }
     
     return (
@@ -23,10 +29,10 @@ const Dialogs = (props) => {
             </div>
 
             <div>
-                <textarea ref={addMessage}></textarea>
+                <textarea onChange={addText} value={props.state.TextChange} ref={addMessage}></textarea>
             </div>
             <div>
-                <button onClick={add}>add</button>
+                <button onClick={addMsg}>add</button>
             </div>
         </div>
         

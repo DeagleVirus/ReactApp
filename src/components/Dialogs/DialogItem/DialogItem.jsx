@@ -4,7 +4,7 @@ import style from './../Dialogs.module.css'
 const DialogItem = (props) => {
     return (
         <div className={`${style.dialogName} ${style.active}`}>
-            <img src='https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png' />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Mangekyou_Sharingan_Kakashi.svg/480px-Mangekyou_Sharingan_Kakashi.svg.png' alt='sharingan'/>
             <NavLink to={`${'/dialogs/'}${props.id}`}>{props.name}</NavLink>
         </div>
     );
