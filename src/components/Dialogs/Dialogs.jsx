@@ -15,7 +15,7 @@ const Dialogs = (props) => {
 
     let addText = () => {
         let get = addMessage.current.value
-        props.addDialogText(get)
+        props.store.addDialogText(get)
     }
     
     return (
