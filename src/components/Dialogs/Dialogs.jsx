@@ -3,19 +3,19 @@ import { NavLink } from 'react-router-dom';
 import style from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Messages from './Messages/Messages'
+import {addMessageActionCreator, addMessageTextActionCreator} from '../../redux/state'
 
 const Dialogs = (props) => {
 
     let addMessage = React.createRef();
     let addMsg = () => {
-        let text = addMessage.current.value
-        alert(text)
+        props.dispatch(addMessageActionCreator())
         addMessage.current.value = ''
     }
 
     let addText = () => {
         let get = addMessage.current.value
-        props.store.addDialogText(get)
+        props.dispatch(addMessageTextActionCreator(get))
     }
     
     return (
