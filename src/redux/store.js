@@ -2,7 +2,7 @@ import { ProfileReducer } from "./profile_reducer";
 import { DialogsReducer } from "./dialogs_reducer";
 
 let store = {
-  _rerendering() {
+  _subscriber() {
     console.log("hello!!!");
   },
 
@@ -42,14 +42,14 @@ let store = {
     return this._state;
   },
 
-  observing(observer) {
-    this._rerendering = observer;
+  subscribe(observer) {
+    this._subscriber = observer;
   },
 
   dispatch(action) {
     this._state.profilePage = ProfileReducer(this._state.profilePage, action);
     this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action);
-    this._rerendering();
+    this._subscriber();
   },
 };
 

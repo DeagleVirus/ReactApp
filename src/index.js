@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state'
+import store from './redux/redux_store'
 
 /* state={state} addPost={addPost} addPostText={addPostText} addDialogText={addDialogText} */
 let rerendering = () => {
@@ -18,7 +18,7 @@ let rerendering = () => {
 
 rerendering()
 
-store.observing(rerendering)
+store.subscribe(rerendering)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

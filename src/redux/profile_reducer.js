@@ -1,7 +1,16 @@
 const ADD_POST = "ADD_POST";
 const ADD_POST_TEXT = "ADD_POST_TEXT";
 
-export const ProfileReducer = (state, action) => {
+let profilePage = {
+  posts: [
+    { message: "hello, lets go to the gym", likes: "5" },
+    { message: "good idea my friend!", likes: "3" },
+  ],
+
+  TextChange: "",
+}
+
+export const ProfileReducer = (state = profilePage, action) => {
   switch (action.type) {
     case ADD_POST:
       let post = {
