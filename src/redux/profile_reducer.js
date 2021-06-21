@@ -12,18 +12,24 @@ let profilePage = {
 
 export const ProfileReducer = (state = profilePage, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let post = {
         message: state.TextChange,
         likes: "0",
       };
-
-      state.posts.push(post);
-      state.TextChange = "";
-      return state;
-    case ADD_POST_TEXT:
-      state.TextChange = action.newText;
-      return state;
+      
+      return {
+          ...state,
+          posts: [...state.posts, post],
+          TextChange: ''
+      };
+    }
+    case ADD_POST_TEXT: {
+      return {
+          ...state,
+          TextChange: action.newText,
+      };
+    }
     default:
       return state;
   }

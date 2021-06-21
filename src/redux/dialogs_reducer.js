@@ -24,17 +24,22 @@ let dialogsPage = {
 
 export const DialogsReducer = (state = dialogsPage, action) => {
   switch (action.type) {
-    case ADD_MESSAGE:
+    case ADD_MESSAGE: 
       let message = {
         message: state.TextChange,
       };
 
-      state.messages.push(message);
-      state.TextChange = "";
-      return state;
-    case ADD_MESSAGE_TEXT:
-      state.TextChange = action.newText;
-      return state;
+      return {
+          ...state,
+          messages: [...state.messages, message],
+          TextChange: '',
+      };
+
+    case ADD_MESSAGE_TEXT: 
+      return {
+          ...state,
+          TextChange: action.newText
+      };
     default:
       return state;
   }

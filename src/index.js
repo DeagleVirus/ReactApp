@@ -4,21 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux_store'
+import {Provider} from 'react-redux'
 
 /* state={state} addPost={addPost} addPostText={addPostText} addDialogText={addDialogText} */
-let rerendering = () => {
-    ReactDOM.render(
-        <React.StrictMode>
-            <App store={store}/>
-        </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+document.getElementById('root')
 );
-    reportWebVitals();
-}
+reportWebVitals();
 
-rerendering()
-
-store.subscribe(rerendering)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
