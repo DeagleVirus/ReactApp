@@ -8,11 +8,9 @@ import {Provider} from 'react-redux'
 
 /* state={state} addPost={addPost} addPostText={addPostText} addDialogText={addDialogText} */
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <App />
+    </Provider>,
 document.getElementById('root')
 );
 reportWebVitals();
