@@ -5,19 +5,22 @@ import UserPhoto from './../../assets/images/user.png'
 
 class Users extends React.Component {
       
-       /*  props.setUsers(
-            [
-                {id: 1, photoURL: 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png', name: 'Oleksandr', followed: false, location: {city: 'Kyiv', country: 'Ukraine'}, status: 'hello'},
-                {id: 2, photoURL: 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png', name: 'Dima', followed: true, location: {city: 'New York', country: 'USA'}, status: 'hi'},
-                {id: 3, photoURL: 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png', name: 'Maksym', followed: false, location: {city: 'Warsaw', country: 'Poland'}, status: '???'},
-            ]
-        ) */
-
-
     render() {
+        let totalPages = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+
+        let pages = []
+        for(let i = 1; i <= totalPages; i++){
+            pages.push(i)
+        }
+
 
         return (
             <div>
+                {pages.map(p => {
+                    return <button className={this.props.currentPage === p && style.selected} 
+                    onClick={() => this.onPageChanged(p) }>{p} </button> 
+                })}
+                
                 {this.props.users.map(u => (
                     <div key={u.id}>
                         <img src={u.photos.large != null ? u.photos.large : UserPhoto} className={style.image}/>
@@ -39,9 +42,18 @@ class Users extends React.Component {
         )
     }
 
-    componentDidMount(){
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+    onPageChanged = (p) => {
+        this.props.setCurrentPage(p)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
+            debugger
+        } )
+    }
+
+    componentDidMount(){
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items)
+            //this.props.setTotalUsersCount(response.data.totalCount)
         } )
     }
 }
