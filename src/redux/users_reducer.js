@@ -8,7 +8,7 @@ const TOGGLE_FETCHING = 'TOGGLE_FETCHING'
 let usersPage = {
     users: [],
     pageSize: 5,
-    totalUsersCount: 18,
+    totalUsersCount: 1000,
     currentPage: 1,
     isFetching: false,
 }

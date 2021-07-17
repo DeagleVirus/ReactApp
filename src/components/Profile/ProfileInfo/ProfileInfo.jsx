@@ -1,15 +1,20 @@
+import Preloader from '../../common/preloader/Preloader';
 import info from './ProfileInfo.module.css';
 
 const ProfileInfo = (props) => {
+    if(!props.profile){
+        return <Preloader />
+    }
+
     return (
-        <div className={info.general}>
-            <img src="https://i.pinimg.com/originals/4d/b0/dd/4db0ddad2581a98832b486d6ff9788e2.jpg" />
+        <div /* className={info.general} */>
+            <img src={props.profile.photos.large} />
             <div>
-                avatar
+                {props.profile.aboutMe}
             </div>
 
             <div>
-                profile description
+                {props.profile.fullName}
             </div>
           </div>
     );

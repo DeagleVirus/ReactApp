@@ -1,5 +1,6 @@
-const ADD_POST = "ADD_POST";
-const ADD_POST_TEXT = "ADD_POST_TEXT";
+const ADD_POST = 'ADD_POST'
+const ADD_POST_TEXT = 'ADD_POST_TEXT'
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 let profilePage = {
   posts: [
@@ -8,6 +9,7 @@ let profilePage = {
   ],
 
   TextChange: "",
+  profile: null,
 }
 
 export const ProfileReducer = (state = profilePage, action) => {
@@ -30,6 +32,12 @@ export const ProfileReducer = (state = profilePage, action) => {
           TextChange: action.newText,
       };
     }
+    case SET_USER_PROFILE: {
+      return {
+        ...state,
+        profile: action.profile
+      }
+    }
     default:
       return state;
   }
@@ -40,3 +48,4 @@ export const addPostTextActionCreator = (get) => ({
   type: ADD_POST_TEXT,
   newText: get,
 });
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile}) 
