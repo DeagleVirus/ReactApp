@@ -18,3 +18,20 @@
 .header img:active {
   border-radius: 35%;
 }
+
+.login {
+  float: right;
+  background-color: aqua;
+  border-radius: 10px;
+  border: 2px solid white;
+  padding: 10px;
+}
+
+.login a {
+  text-decoration: none;
+  color: black;
+}
+
+.login:active {
+  background-color: yellow;
+}
