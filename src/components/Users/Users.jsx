@@ -1,7 +1,7 @@
 import style from './Users.module.css'
 import UserPhoto from './../../assets/images/user.png'
 import { NavLink } from 'react-router-dom'
-import * as axios from 'axios'
+import axios from 'axios'
 
 const Users = (props) => {
 
