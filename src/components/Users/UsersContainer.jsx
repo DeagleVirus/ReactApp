@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Users from './Users'
-import {FollowAC, UnFollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, toggleFetchingAC} from './../../redux/users_reducer'
+import {FollowAC, UnFollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, toggleFetchingAC, toggleFollowingAC} from './../../redux/users_reducer'
 import Preloader from '../common/preloader/Preloader'
 import {usersAPI} from '../../api/api'
 
@@ -18,7 +18,9 @@ class UsersClassContainer extends React.Component {
                        currentPage={this.props.currentPage}
                        onPageChanged={this.onPageChanged}
                        follow={this.props.follow}
-                       unfollow={this.props.unfollow}/>
+                       unfollow={this.props.unfollow}
+                       toggleFollowing={this.props.toggleFollowing}
+                       following={this.props.following}/>
         )}
         </>
     }
@@ -50,6 +52,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
+        following: state.usersPage.following,
     }
 }
 
@@ -61,6 +64,7 @@ let mapDispatchToProps = (dispatch) => {
         setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
         setTotalUsersCount: (totalUsersCount) => dispatch(setTotalUsersCountAC(totalUsersCount)),
         toggleFetching: (isFetching) => dispatch(toggleFetchingAC(isFetching)),
+        toggleFollowing: (isFetching, userId) => dispatch(toggleFollowingAC(isFetching, userId)),
     }
 }
 
