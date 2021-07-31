@@ -13,3 +13,25 @@ export const usersAPI = {
                 return response.data})
     }
 }
+
+export const followAPI = {
+    follow(userId){
+        return init.post(`follow/${userId}`)
+    },
+
+    unfollow(userId){
+        return init.delete(`follow/${userId}`)
+    }
+}
+
+export const HeaderAPI = {
+    authorization(){
+        return init.get('auth/me')
+    }
+}
+
+export const ProfileAPI = {
+    getUserProfile(userId) {
+        return init.get(`profile/${userId}`)
+    }
+}

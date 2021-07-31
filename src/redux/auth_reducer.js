@@ -1,3 +1,5 @@
+import { HeaderAPI } from "../api/api"
+
 const SET_USERS_LOGIN = 'SET_USERS_LOGIN'
 
 let auth = {
@@ -20,3 +22,13 @@ export const AuthReducer = (state = auth, action) => {
 }
 
 export const setUserData = (email, id, login) => ({type: SET_USERS_LOGIN, data: {email, id, login}})
+
+export const authThunkCreator = () => (dispatch) => {
+    HeaderAPI.authorization()
+        .then(response => {
+            if(response.data.resultCode === 0){
+                let {email, id, login} = response.data.data
+                dispatch(setUserData(email, id, login))
+            }
+        })
+}

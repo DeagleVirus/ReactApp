@@ -1,3 +1,5 @@
+import { followAPI, usersAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -82,3 +84,35 @@ export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, curre
 export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
 export const toggleFetchingAC = (isFetching) => ({type: TOGGLE_FETCHING, isFetching})
 export const toggleFollowingAC = (isFetching, userId) => ({type: TOGGLE_FOLLOWING, isFetching, userId})
+
+export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
+        dispatch(setCurrentPageAC(currentPage))
+        dispatch(toggleFetchingAC(true))
+        usersAPI.getUsers(currentPage, pageSize).then(response => {
+        dispatch(setUsersAC(response.items))
+        //dispatch(setTotalUsersCountAC(response.data.totalCount))
+        dispatch(toggleFetchingAC(false))
+    })
+}
+
+export const followThunkCreator = (userId) => (dispatch) => {
+        dispatch(toggleFollowingAC(true, userId))
+        followAPI.follow(userId)
+            .then(response => {
+                if(response.data.resultCode === 0){
+                    dispatch(FollowAC(userId))
+                }
+        dispatch(toggleFollowingAC(false, userId))
+    })
+}
+
+export const unfollowThunkCreator = (userId) => (dispatch) => {
+    dispatch(toggleFollowingAC(true, userId))
+    followAPI.unfollow(userId)
+        .then(response => {
+            if(response.data.resultCode === 0){
+                dispatch(UnFollowAC(userId))
+            }
+    dispatch(toggleFollowingAC(false, userId))
+})
+}
