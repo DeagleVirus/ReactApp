@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Profile from './Profile'
 import { getUserProfileThunkCreator } from '../../redux/profile_reducer'
 import { withRouter } from 'react-router-dom'
+import { withRedirect } from '../../HOC/withRedirect'
 
 class ProfileClassContainer extends React.Component{
     
@@ -22,7 +23,7 @@ class ProfileClassContainer extends React.Component{
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
     }
 }
 
@@ -30,7 +31,9 @@ let mapDispatchToProps = (dispatch) => ({
     getUserProfile: (userId) => dispatch(getUserProfileThunkCreator(userId))
 })
 
-const UrlDataContainerComponent = withRouter(ProfileClassContainer)
+const RedirectContainerComponent = withRedirect(ProfileClassContainer)
+
+const UrlDataContainerComponent = withRouter(RedirectContainerComponent)
 
 const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UrlDataContainerComponent)
 

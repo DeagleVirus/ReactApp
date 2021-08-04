@@ -4,6 +4,7 @@ import Users from './Users'
 import {setUsersAC, setTotalUsersCountAC,
      getUsersThunkCreator, followThunkCreator, unfollowThunkCreator} from './../../redux/users_reducer'
 import Preloader from '../common/preloader/Preloader'
+import { withRedirect } from '../../HOC/withRedirect'
 
 class UsersClassContainer extends React.Component {
       
@@ -54,6 +55,8 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersClassContainer)
+const RedirectContainerComponent = withRedirect(UsersClassContainer)
+
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(RedirectContainerComponent)
 
 export default UsersContainer
