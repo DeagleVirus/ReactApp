@@ -4,6 +4,7 @@ import Profile from './Profile'
 import { getUserProfileThunkCreator } from '../../redux/profile_reducer'
 import { withRouter } from 'react-router-dom'
 import { withRedirect } from '../../HOC/withRedirect'
+import { compose } from 'redux'
 
 class ProfileClassContainer extends React.Component{
     
@@ -31,10 +32,8 @@ let mapDispatchToProps = (dispatch) => ({
     getUserProfile: (userId) => dispatch(getUserProfileThunkCreator(userId))
 })
 
-const RedirectContainerComponent = withRedirect(ProfileClassContainer)
-
-const UrlDataContainerComponent = withRouter(RedirectContainerComponent)
-
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UrlDataContainerComponent)
-
-export default ProfileContainer
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter,
+    withRedirect,
+)(ProfileClassContainer)
